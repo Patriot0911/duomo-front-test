@@ -17,8 +17,8 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     &.selected {
-      outline: 2px solid var(--color-primary);
       background-color: var(--color-primary);
+      box-shadow: 0 0 0 2px var(--color-primary);
     }
   }
   .card-wrapper {
@@ -32,7 +32,7 @@
     background-color: var(--color-secondary-100);
     color: var(--color-secondary-600);
     &.selected {
-      outline: 2px solid var(--color-primary);
+      box-shadow: 0 0 0 2px var(--color-primary);
     }
     &.popular {
       border-top-left-radius: 0;

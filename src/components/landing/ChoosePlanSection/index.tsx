@@ -6,12 +6,11 @@ import styles from './styles.module.scss';
 const subscriptionUrl = 'https://awesomeapp.com/subscription';
 const subscriptionContactEmail = 'support@awesomeapp.com';
 
-const ChoosePlanSection = ({ id, children }: ISectionProps) => {
+const ChoosePlanSection = ({ id, }: ISectionProps) => {
   return (
     <section id={id ?? 'choose-plan-section'} className={styles['choose-plan-section']}>
-      <h2 className={styles['section-heading']}>Choose your plan</h2>
+      <h2 className={'section-heading'}>Choose your plan</h2>
       <PlanSelection />
-      {children}
       <p className={styles['subscription-prescription']}>
         You are enrolling in a 3-monthly subscription to
         <a href={subscriptionUrl}> {subscriptionUrl} </a> with the discount price

@@ -14,8 +14,8 @@ const PlanSelection = () => {
 
   const getPlanHandle = () => {
     if (!selectedPlanId) return;
-    console.log('tested');
-    router.push(`/checkout-subscription?id=${selectedPlanId}`, {});
+    // ніби ми дійсно обрали якийсь план, та йдемо його купляти etc
+    router.push(`/checkout-subscription?id=${selectedPlanId}`);
   };
 
   return (
@@ -28,7 +28,11 @@ const PlanSelection = () => {
                 {...item}
                 key={item.id}
                 isSelected={item.id === selectedPlanId}
-                select={() => setSelectedPlanId(item.id)}
+                select={
+                  () => setSelectedPlanId(
+                    item.id === selectedPlanId ? undefined : item.id
+                  )
+                }
               />
             )
           )

@@ -1,5 +1,3 @@
-import type { PropsWithChildren } from 'react';
-
-export interface ISectionProps extends PropsWithChildren {
+export interface ISectionProps {
   id?: string;
 };
