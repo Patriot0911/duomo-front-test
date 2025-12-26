@@ -13,7 +13,7 @@ const CircularLoading = ({ autoStart, duration, onComplete, }: ICircularLoadingP
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (progress / 100) * circumference;
 
-  const innerRadius = radius * 0.8;
+  const innerRadius = radius * 0.7;
   const innerCircumference = 2 * Math.PI * innerRadius;
   const gapAngle = Math.PI / 2.3;
 
@@ -77,7 +77,7 @@ const CircularLoading = ({ autoStart, duration, onComplete, }: ICircularLoadingP
           isComplete ? styles['visible'] : ''
         }`}
       >
-        <svg width='20' height='16' viewBox='0 0 15 12' fill='none'>
+        <svg width='17' height='16' viewBox='0 0 15 12' fill='none'>
           <path
             d='M1 6.5L5 10.5C7 6.5 10 3.5 14 1'
             stroke='#222B38'
