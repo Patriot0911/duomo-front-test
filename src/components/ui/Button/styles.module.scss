@@ -1,0 +1,29 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  padding: 0.8rem 1rem;
+  border-radius: 0.6rem;
+  background-color: var(--color-primary);
+  border: 3px solid var(--color-primary);;
+  color: var(--color-light);
+  transition: border-color, background-color 200ms ease-in-out;
+  &.disabled {
+    pointer-events: none;
+    background-color: var(--color-light);
+    color: var(--color-text-secondary-100);
+    border-color: var(--color-secondary-50);
+    pointer-events: none;
+    cursor: default;
+    span {
+      opacity: 0.8;
+    }
+  }
+  span {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+}

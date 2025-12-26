@@ -1,0 +1,94 @@
+.card-outter-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  border: 0px solid black;
+  .popular-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.2rem 0;
+    color: var(--color-light);
+    background-color: var(--color-secondary-600);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    &.selected {
+      outline: 2px solid var(--color-primary);
+      background-color: var(--color-primary);
+    }
+  }
+  .card-wrapper {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 10px;
+    background-color: var(--color-secondary-100);
+    color: var(--color-secondary-600);
+    &.selected {
+      outline: 2px solid var(--color-primary);
+    }
+    &.popular {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-top: none !important;
+    }
+    .select-circle {
+      position: relative;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      content: '';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid var(--color-secondary-300);
+      &::after {
+        position: absolute;
+        width: 80%;
+        height: 80%;
+        border-radius: 50%;
+        content: '';
+        background-color: var(--color-primary);
+        opacity: 0;
+      }
+      &.selected {
+        border-color: var(--color-primary);
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    .card-label {
+      flex-grow: 1;
+      font-size: var(--text-lg);
+      font-weight: 700;
+    }
+    .price-wrapper {
+      display: flex;
+      background-color: var(--color-secondary-200);
+      padding: 0.75rem;
+      border-radius: 5px;
+      position: relative;
+      align-items: flex-start;
+      .currency-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: 1.2rem;
+      }
+      .price {
+        line-height: 2rem;
+        color: var(--color-secondary-600);
+        font-weight: 800;
+        font-size: 3rem;
+      }
+    }
+  }
+}

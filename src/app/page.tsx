@@ -8,7 +8,9 @@ const Home = () => {
       <BenefitsSection />
       <StatisticsSection />
       <CommentsSection />
-      <ChoosePlanSection />
+      <ChoosePlanSection
+        id={'choose-plan-bottom-section'}
+      />
     </>
   );
 }

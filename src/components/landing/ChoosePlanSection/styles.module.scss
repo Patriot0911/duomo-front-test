@@ -1,0 +1,24 @@
+.choose-plan-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  .section-heading {
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    color: var(--color-dark);
+    font-size: var(--text-xl);
+  }
+  .subscription-prescription {
+    max-width: 325px;
+    text-align: center;
+    color: var(--color-secondary-400);
+    font-size: var(--text-xs);
+    line-height: 1.5;
+    a {
+      text-decoration: none;
+      cursor: pointer;
+      color: var(--color-secondary-600);
+    }
+  }
+}

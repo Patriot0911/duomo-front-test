@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import Header from '../Heading';
+import Header from '../Header';
 
 import styles from './styles.module.scss';
 
