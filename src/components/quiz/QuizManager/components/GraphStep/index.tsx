@@ -19,7 +19,7 @@ const GraphStep = ({ next, }: IStepComponentProps) => {
       const currentDate = new Date();
       const id = params.get('id');
       const plan = PLANS_LIST.find(
-        (p) => p.id == id
+        (p) => p.id === id
       );
       if (!plan) {
         router.push('/');

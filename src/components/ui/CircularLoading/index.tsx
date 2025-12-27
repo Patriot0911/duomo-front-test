@@ -1,30 +1,19 @@
 'use client';
 
-import type { ICircularLoadingProps, TLoadingSize } from '@/types/ui/loading';
-import { useEffect, useState } from 'react';
+import type { ICircularLoadingProps, } from '@/types/ui/loading';
+import { useEffect, useRef, useState } from 'react';
+import { resolveLoadingSize } from '@/libs/utils/loadings';
 import { cn } from '@/libs/cn';
 
 import styles from './styles.module.scss';
 
-const SIZE_TOKENS: Record<Exclude<TLoadingSize, number>, number> = {
-  xs: 20,
-  sm: 24,
-  md: 32,
-  lg: 48,
-  xl: 64,
-};
-
-const resolveSize = (size?: TLoadingSize) => {
-  if (typeof size === 'number') return size;
-  if (!size) return SIZE_TOKENS.md;
-  return SIZE_TOKENS[size];
-};
-
 const CircularLoading = ({ autoStart, duration, onComplete, type, size, color, lineCap }: ICircularLoadingProps) => {
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const requestRef = useRef<number | null>(null);
+  const startRef = useRef<number | null>(null);
 
-  const pxSize = resolveSize(size);
+  const pxSize = resolveLoadingSize(size);
   const radius = 18;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (progress / 100) * circumference;
@@ -37,30 +26,37 @@ const CircularLoading = ({ autoStart, duration, onComplete, type, size, color, l
   const gapLength = innerCircumference * 0.14;
   const visibleLength = innerCircumference - gapLength;
 
-  const displayCountValue = isComplete
+   const displayCountValue = isComplete
     ? 100
     : Math.round(progress / 2) * 2;
 
   useEffect(() => {
     if (!autoStart) return;
 
-    const start = performance.now();
+    if (requestRef.current) cancelAnimationFrame(requestRef.current);
+
+    startRef.current = performance.now();
 
     const tick = (now: number) => {
-      const elapsed = now - start;
+      const elapsed = now - startRef.current!;
       const value = Math.min((elapsed / duration) * 99.5, 99.5);
       setProgress(value);
 
-      if (elapsed < duration)
-        return requestAnimationFrame(tick);
-      if (!isComplete) {
-        setIsComplete(true);
-        onComplete?.();
-      }
+      if (elapsed < duration) {
+        requestRef.current = requestAnimationFrame(tick);
+        return;
+      };
+      setIsComplete(true);
+      onComplete?.();
     };
 
-    requestAnimationFrame(tick);
-  }, [autoStart]);
+    requestRef.current = requestAnimationFrame(tick);
+    return () => {
+      if (requestRef.current) {
+        cancelAnimationFrame(requestRef.current);
+      }
+    };
+  }, [autoStart, duration]);
 
   return (
     <div
@@ -69,7 +65,7 @@ const CircularLoading = ({ autoStart, duration, onComplete, type, size, color, l
     >
       <svg viewBox='0 0 40 40' className={styles['svg-circles']}>
         {
-          type == 'tick' && (
+          type === 'tick' && (
             <circle
               cx='20'
               cy='20'
@@ -97,13 +93,13 @@ const CircularLoading = ({ autoStart, duration, onComplete, type, size, color, l
           strokeDashoffset={offset}
           className={cn(
             styles['progress'],
-            (isComplete && type == 'tick') && styles['hide']
+            (isComplete && type === 'tick') && styles['hide']
           )}
         />
       </svg>
 
       {
-        type == 'tick' ? (
+        type === 'tick' ? (
           <div
             className={cn(
               styles['check'],

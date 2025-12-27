@@ -9,8 +9,12 @@
     flex-direction: column;
     flex-grow: 1;
     width: 100%;
+    align-items: center;
     section {
+      flex-grow: 1;
       position: relative;
+      width: 100%;
+      max-width: 360px;
       padding: 1.5rem 1rem;
     }
   }

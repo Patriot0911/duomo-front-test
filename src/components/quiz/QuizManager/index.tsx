@@ -19,7 +19,7 @@ const QuizManager = () => {
       ...prev,
       [currentStep.id]: partialData,
     }));
-    if (stepIndex == STEPS.length-1) {
+    if (stepIndex === STEPS.length-1) {
       const body = {
         email: data[CONTACT_FORM_KEY]?.email,
         planId: params.get('id'),
