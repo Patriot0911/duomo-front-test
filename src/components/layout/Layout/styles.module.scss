@@ -4,9 +4,13 @@
   min-height: 100dvh;
   background-color: var(--color-light);
   main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     width: 100%;
     section {
+      position: relative;
       padding: 1.5rem 1rem;
     }
   }

@@ -1,7 +1,20 @@
 .loading-wrapper {
+  --size: 32px;
+
+  width: var(--size);
+  height: var(--size);
   position: relative;
-  width: 30px;
-  height: 30px;
+
+  @keyframes counterFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 
   .hide {
     opacity: 0;
@@ -36,5 +49,17 @@
       opacity: 1;
       transform: scale(1);
     }
+  }
+  .count-wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-secondary);
+    font-size: calc(var(--size) / 4.5);
+    font-weight: 600;
+    letter-spacing: -3px;
+    animation: counterFadeIn 160ms ease-out;
   }
 }
