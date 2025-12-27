@@ -7,11 +7,12 @@
   padding: 0.8rem 1rem;
   border-radius: 0.6rem;
   background-color: var(--color-primary);
-  border: 3px solid var(--color-primary);;
+  border: 3px solid var(--color-primary);
   color: var(--color-light);
   transition: border-color, background-color 200ms ease-in-out;
+  border: 3px solid var(--color-primary);
+  transition: border-color 200ms ease-in-out, background-color 200ms ease-in-out;
   &.disabled {
-    pointer-events: none;
     background-color: var(--color-light);
     color: var(--color-text-secondary-100);
     border-color: var(--color-secondary-50);

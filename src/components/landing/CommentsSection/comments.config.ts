@@ -22,4 +22,4 @@ export const COMMENTS: ICommentItem[] = [
     comment: 'Soooo fun I recommend. Easy and fun I thought it was a little challenging but if it wasn’t it would not be fun I recommend',
     date: new Date('19 December 2023'),
   },
-];
+] as const;

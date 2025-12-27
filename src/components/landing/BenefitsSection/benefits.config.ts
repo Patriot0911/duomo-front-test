@@ -21,4 +21,4 @@ export const BENEFITS: IListItem[] = [
     id: 'closer-to-god',
     value: 'You grow closer to God through everyday Bible reading',
   },
-];
+] as const;

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/ui/Button';
 import PlanCard from '../PlanCard';
-import { PLANS_LIST } from './plans.config';
+import { PLANS_LIST } from '../../../../../shared/plans.config';
 
 import styles from './styles.module.scss';
 

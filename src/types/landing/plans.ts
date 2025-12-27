@@ -2,6 +2,7 @@ export interface IPlanItem {
   id: string;
   label: string;
   price: number;
+  time: number; // у місяцях
   isMostPopular?: boolean;
 };
 

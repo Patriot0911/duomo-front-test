@@ -12,6 +12,7 @@ const validate = (value: string, rules?: TValidationRule[]) => {
 
   for (const rule of rules) {
     const validator = validators[rule.type];
+    if (!validator) throw new Error(`Cannot find validator for: ${rule.type}`);
     if (!validator(value, rule as any)) continue;
     return rule.message;
   }

@@ -15,7 +15,10 @@ const LoadingStep = ({ next, }: IStepComponentProps) => {
   const duration = LOADINGS.length * LOADING_DURATION;
 
   const onLoadingFinish = useCallback(
-    () => setTimeout(() => next(), 500), [next]
+    () => {
+      const timer = setTimeout(() => next(), 500);
+      return () => clearTimeout(timer);
+    }, []
   );
 
   return (

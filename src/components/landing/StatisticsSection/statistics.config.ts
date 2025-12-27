@@ -16,4 +16,4 @@ export const STATISTICS: IStatisticItem[] = [
     description: 'of users struggled with finding time for daily praying',
     chance: 47,
   },
-];
+] as const;

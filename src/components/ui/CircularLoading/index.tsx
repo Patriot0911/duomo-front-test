@@ -53,12 +53,14 @@ const CircularLoading = ({ autoStart, duration, onComplete, type, size, color, l
 
       if (elapsed < duration)
         return requestAnimationFrame(tick);
-      setIsComplete(true);
-      onComplete?.();
+      if (!isComplete) {
+        setIsComplete(true);
+        onComplete?.();
+      }
     };
 
     requestAnimationFrame(tick);
-  }, [autoStart, duration, onComplete]);
+  }, [autoStart]);
 
   return (
     <div
