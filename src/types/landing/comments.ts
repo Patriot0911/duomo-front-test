@@ -6,4 +6,4 @@ export interface ICommentItem {
   comment: string;
 };
 
-export interface ICommentCardProps extends Omit<ICommentItem, 'id'> {};
+export type TCommentCardProps = Omit<ICommentItem, 'id'>;

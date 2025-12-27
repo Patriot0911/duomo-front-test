@@ -29,7 +29,7 @@ const GraphStep = ({ next, }: IStepComponentProps) => {
       const periodInMonth = plan.time;
       currentDate.setMonth(currentDate.getMonth() + periodInMonth);
       return currentDate;
-    }), [next]
+    }), [router, params]
   );
   return (
     <div className={styles['graph-step-block']}>
@@ -39,7 +39,7 @@ const GraphStep = ({ next, }: IStepComponentProps) => {
           finishDate={finishDate}
         />
       </div>
-      <Button onClick={() => next({})}>
+      <Button onClick={() => next()}>
         Continue
       </Button>
     </div>

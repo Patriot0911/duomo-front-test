@@ -37,7 +37,7 @@ const ContactFormStep = ({ next, }: IStepComponentProps) => {
         />
       </div>
       <Button
-        onClick={() => next({ email, })}
+        onClick={() => next({ email: email!, })}
         disabled={!isValid}
       >
         Continue

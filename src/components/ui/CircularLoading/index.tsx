@@ -56,7 +56,7 @@ const CircularLoading = ({ autoStart, duration, onComplete, type, size, color, l
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, [autoStart, duration]);
+  }, [autoStart, duration, onComplete]);
 
   return (
     <div

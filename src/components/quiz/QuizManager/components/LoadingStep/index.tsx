@@ -18,7 +18,7 @@ const LoadingStep = ({ next, }: IStepComponentProps) => {
     () => {
       const timer = setTimeout(() => next(), 500);
       return () => clearTimeout(timer);
-    }, []
+    }, [next]
   );
 
   return (

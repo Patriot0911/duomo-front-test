@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { STEPS } from '../steps.config';
 import { CONTACT_FORM_KEY } from './components/ContactFormStep';
+import { ValueOf } from '@/types/shared';
 
 const QuizManager = () => {
   const params = useSearchParams();
@@ -14,7 +15,7 @@ const QuizManager = () => {
 
   const currentStep = STEPS[stepIndex];
 
-  const next = (partialData: Record<string, any> = {}) => {
+  const next = (partialData: ValueOf<IQuizStepData>) => {
     setData((prev) => ({
       ...prev,
       [currentStep.id]: partialData,

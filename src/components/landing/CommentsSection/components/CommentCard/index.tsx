@@ -1,10 +1,10 @@
-import type { ICommentCardProps } from '@/types/landing/comments';
+import type { TCommentCardProps } from '@/types/landing/comments';
 import formatDate from '@/libs/utils/formatDate';
 import { IoStar } from 'react-icons/io5';
 
 import styles from './styles.module.scss';
 
-const CommentCard = ({ author, comment, date, rating, }: ICommentCardProps) => {
+const CommentCard = ({ author, comment, date, rating, }: TCommentCardProps) => {
   return (
     <div className={styles['comment-card']}>
       <div className={styles['top-wrapper']}>

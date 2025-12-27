@@ -1,9 +1,8 @@
-export type TValidationLen = { type: 'minLength' | 'maxLength'; value: number; message: string };
+export type TValidationType = 'required' | 'email' | 'minLength' | 'maxLength';
 
-export type TValidationRule =
-  | { type: 'required'; message: string }
-  | { type: 'email'; message: string }
-  | TValidationLen;
+export type TValidationRule ={ type: TValidationType; message: string; value?: string | number; };
+
+export type TValidator = (value: string, rule: TValidationRule) => boolean;
 
 export type IInputMeta = {
   touched: boolean;
